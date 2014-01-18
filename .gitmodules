@@ -1,6 +1,6 @@
 [submodule "lib/chartjs"]
 	path = lib/chartjs
-	url = git@github.com:nnnick/Chart.js.git
+	url = https://github.com/nnnick/Chart.js.git
 [submodule "lib/d3js"]
 	path = lib/d3js
-	url = git@github.com:mbostock/d3.git
+	url = https://github.com/mbostock/d3.git
