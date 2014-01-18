@@ -14,6 +14,12 @@ which will clone repositories for dependencies in lib/ directory.
     git submodule init
     git submodule update
 
+VIEW EXAMPLES ONLINE
+--------------------
+
+The project is hosted on GitHub Pages:  
+http://eric-brechemier.github.io/js-charts-lab/
+
 REFERENCES
 ----------
 
