@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Donut Chart with D3.js</title>
+    <style>
+    svg {
+      font: 20px sans-serif;
+    }
+
+    .arc path {
+      stroke: #fff;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Donut Chart with D3.js</h1>
+    <p>
+    Based on <a href="http://bl.ocks.org/mbostock/3887193"
+    >Donut Chart example from D3.js Gallery</a>
+    </p>
+    <script src="lib/d3js/d3.js"></script>
+    <script>
+    var WIDTH = 400,
+        HEIGHT = 400,
+        RADIUS = Math.min(WIDTH, HEIGHT) / 2,
+        OUTER_MARGIN = 5,
+        INNER_MARGIN = 102;
+
+    var svg =
+      d3
+      .select("body")
+      .append("svg")
+      .attr("width", WIDTH)
+      .attr("height", HEIGHT)
+      .append("g")
+      .attr("transform",
+        "translate(" + WIDTH / 2 + "," + HEIGHT / 2 + ")"
+      );
+
+    var arc =
+      d3
+        .svg
+        .arc()
+        .outerRadius(RADIUS - OUTER_MARGIN)
+        .innerRadius(RADIUS - INNER_MARGIN);
+
+    var data = [
+      {
+        value: 20,
+        color: "#2A2"
+      },
+      {
+        value: 30,
+        color: "#DFD"
+      },
+      {
+        value: 50,
+        color: "#8A8"
+      }
+    ];
+
+    var pie =
+      d3
+        .layout
+        .pie()
+        .sort(null)
+        .value(function(d) {
+          return d.value;
+        });
+
+    var g =
+      svg
+        .selectAll(".arc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+
+    g
+      .append("path")
+      .attr("d", arc)
+      .style("fill", function(d) {
+        return d.data.color;
+      });
+
+    g
+      .append("text")
+      .attr("transform", function(d) {
+        return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.value; });
+    </script>
+  </body>
+</html>

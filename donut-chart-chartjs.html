@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Donut Chart with Chart.js</title>
+  </head>
+  <body>
+    <h1>Donut Chart with Chart.js</h1>
+    <p>
+    Based on <a href="http://www.chartjs.org/docs/#doughnutChart"
+    >Doughnut Chart example in Chart.js documentation</a>.
+    </p>
+    <canvas id="chartCanvas" width="400" height="400"></canvas>
+    <script src="lib/chartjs/Chart.js"></script>
+    <script>
+      var
+        canvas = document.getElementById("chartCanvas"),
+        drawing = canvas.getContext("2d"),
+        data = [
+          {
+            value: 20,
+            color: "#2A2"
+          },
+          {
+            value: 30,
+            color: "#DFD"
+          },
+          {
+            value: 50,
+            color: "#8A8"
+          }
+        ],
+        options = {
+          // Boolean - Whether we should show a stroke on each segment
+          segmentShowStroke : true,
+
+          // String - The colour of each segment stroke
+          segmentStrokeColor : "#fff",
+
+          // Number - The width of each segment stroke
+          segmentStrokeWidth : 2,
+
+          // The percentage of the chart that we cut out of the middle.
+          percentageInnerCutout : 50,
+
+          // Boolean - Whether we should animate the chart
+          animation : true,
+
+          // Number - Amount of animation steps
+          animationSteps : 100,
+
+          // String - Animation easing effect
+          animationEasing : "easeOutBounce",
+
+          // Boolean - Whether we animate the rotation of the Doughnut
+          // animateRotate : true,
+          animateRotate: false,
+
+          // Boolean - Whether we animate scaling the Doughnut from the centre
+          animateScale : false,
+
+          // Function - Will fire on animation completion.
+          onAnimationComplete : null
+        },
+        chart = new Chart(drawing).Doughnut(data, options);
+    </script>
+  </body>
+</html>
