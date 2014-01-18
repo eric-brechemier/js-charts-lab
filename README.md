@@ -3,6 +3,17 @@ js-charts-lab
 
 Experiments with charts in JavaScript
 
+GETTING STARTED
+---------------
+
+After cloning the project, the submodules must be initialized,
+which will clone repositories for dependencies in lib/ directory.
+
+    git clone git@github.com:eric-brechemier/js-charts-lab.git
+    cd js-charts-lab
+    git submodule init
+    git submodule update
+
 REFERENCES
 ----------
 
